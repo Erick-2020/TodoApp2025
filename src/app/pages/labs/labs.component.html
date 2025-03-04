@@ -1,0 +1,54 @@
+<h1 id="title">Hola este es mi primer proyecto</h1>
+<section>
+  <article>
+    <h2>{{title}}</h2>
+    <p>Hola soy {{myName()}}</p>
+    <ul>
+      @for (taks of tasks(); track $index) {
+        <li>{{taks}}</li>
+      }
+    </ul>
+  </article>
+  <hr>
+  <article>
+    <h2>{{ "saludo".repeat(4) }}</h2>
+    <p>la suma de 2+2 es {{2+2 }}</p>
+  </article>
+  <hr>
+  <article>
+    <!-- property binding -->
+    <img [src]="imgAngular" alt="">
+    <p>{{person.name}}</p>
+    <p>{{person.age}}</p>
+    <img [src]="person.avatar" alt="">
+  </article>
+  <hr>
+  <article>
+    <!-- event binding -->
+    <button (click)="showAlert()">Click me!</button>
+    <button (dblclick)="showAlert()">Click me double!</button>
+    <br>
+  </article>
+  <hr>
+  <article>
+    <!-- keydown -->
+     <p>(keydown)</p>
+    <input type="text" (keydown)="keydownEvent($event)">
+  </article>
+  <hr>
+  <article>
+    <h1>SIGNALS</h1>
+    <p>Hola mi nombre de manera reactiva es: {{myName()}}</p>
+    <input type="text" [value]="myName()" (change)="changeSignal($event)">
+  </article>
+  <hr>
+  <article>
+    <h1>ESTRUCTURAS DE CONTROL - FOR</h1>
+    <ul>
+      @for (taks of tasks(); track $index;) {
+        <li>{{$index}} {{taks}}</li>
+      }
+    </ul>
+    <p>total: {{tasks().length}} elementos del array</p>
+  </article>
+</section>
