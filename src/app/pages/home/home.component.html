@@ -8,7 +8,9 @@
         placeholder="Nueva tarea"
         autofocus
         type="text"
-        (change)="newTask($event)"
+        [formControl]="newTaskControl"
+        (keydown.enter)="newTask()"
+        pattern=".+"
       />
     </div>
   </header>

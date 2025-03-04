@@ -51,4 +51,27 @@
     </ul>
     <p>total: {{tasks().length}} elementos del array</p>
   </article>
+  <hr>
+  <article>
+    <h2>SWITCH</h2>
+    @switch (person.name)  {
+      @case ("Jose") {
+        <p>Soy Jose</p>
+      }
+      @case ("Erick") {
+        <p>Soy Erick</p>
+      }
+      @default {
+        <p>Soy Por defecto</p>
+      }
+    }
+  </article>
+  <hr>
+  <br>
+  <article>
+    <h2>MANEJO DE IMPUTS</h2>
+    <h4>Formulario reactivo</h4>
+    <input type="color" name="" id="" [formControl]="colorControl">
+    <p>Color: {{ colorControl.value }}</p>
+  </article>
 </section>

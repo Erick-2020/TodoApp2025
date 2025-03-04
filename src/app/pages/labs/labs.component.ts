@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { SIGNAL } from '@angular/core/primitives/signals';
 import Swal from 'sweetalert2';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.scss'
 })
@@ -52,6 +53,17 @@ export class LabsComponent {
     const newName = input.value;
     this.myName.set(newName);
   }
+
+  //Formularios reactivos
+  colorControl = new FormControl('');
+
+  constructor(){
+    //Nos subscribimos para estar pendientes del cambio del color
+    this.colorControl.valueChanges.subscribe(color => {
+      console.log(color);
+    })
+  }
+
 
 
 

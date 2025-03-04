@@ -1,9 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { Task } from '../../modules/task.module';
+import { Validators, FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -21,10 +24,20 @@ export class HomeComponent {
       }
     ]);
 
-    newTask(event: Event) {
-      const input = event.target as HTMLInputElement;
-      const newTask = input.value;
-      this.addTask(newTask);
+    newTaskControl = new FormControl('', {
+      nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.pattern(/^(?!\s*$).+/)
+      ]
+    });
+
+    newTask() {
+      if(this.newTaskControl.valid) {
+        const value = this.newTaskControl.value;
+      this.addTask(value);
+      this.newTaskControl.setValue('');
+      }
     }
 
     addTask(title: string) {
@@ -55,3 +68,5 @@ export class HomeComponent {
     }
 
 }
+// Removed incorrect FormControl function definition
+
