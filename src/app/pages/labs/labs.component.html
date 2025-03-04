@@ -74,4 +74,17 @@
     <input type="color" name="" id="" [formControl]="colorControl">
     <p>Color: {{ colorControl.value }}</p>
   </article>
+  <br>
+  <hr>
+  <article>
+    <h2>Estilos en angular</h2>
+    <svg>
+      <g>
+        <rect x="10" y="10" width="100" height="100" [attr.fill]="colorControl.value"></rect>
+      </g>
+    </svg>
+    <br>
+    <input type="number" name="" id="" [formControl]="widthControl">
+    <span class="box" [style.width.px]="widthControl.value"></span>
+  </article>
 </section>

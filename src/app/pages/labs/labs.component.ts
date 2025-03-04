@@ -64,6 +64,11 @@ export class LabsComponent {
     })
   }
 
+   //Formularios reactivos
+   widthControl = new FormControl(50, {
+    nonNullable: true,
+   });
+
 
 
 
